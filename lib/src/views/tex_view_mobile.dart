@@ -40,9 +40,9 @@ class TeXViewState extends State<TeXView> with AutomaticKeepAliveClientMixin {
       ..addJavaScriptChannel('TeXViewRenderedCallback',
           onMessageReceived: (jm) async {
         double height = double.parse(jm.message);
-        if (_height != height) {
+        if (_height != height + 5) {
           setState(() {
-            _height = height;
+            _height = height + 5;
           });
         }
         widget.onRenderFinished?.call(height);
