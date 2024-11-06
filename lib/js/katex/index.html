@@ -44,7 +44,17 @@
         }
 
         function renderTeXView(onCompleteCallback) {
-            renderMathInElement(teXView);
+            renderMathInElement(teXView,
+                {
+                    delimiters: [
+                        { left: "$$", right: "$$", display: true },
+                        { left: "\\[", right: "\\]", display: true },
+                        { left: "$", right: "$", display: false },
+                        { left: "\\(", right: "\\)", display: false }
+                    ],
+                    throwOnError: false
+                }
+            );
             setTimeout(function () {
                 onCompleteCallback();
             }, 0)
